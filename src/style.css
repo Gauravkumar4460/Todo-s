@@ -1,0 +1,62 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+#project-list{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+#todo-list{
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 550px;
+    height: 200px;
+}
+
+.priority-low {
+    background-color: lightgreen;
+}
+
+.priority-medium {
+    background-color: lightgray;
+}
+
+.priority-high {
+    background-color: lightcoral;
+}
+
+#todo-details {
+    margin: 10px;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    width: 550px;
+    height: 300px;
+}
+
+.active{
+    background-color: skyblue;
+}
+
+#container{
+    display: flex;
+}
+#title,#description,#dueDate,#priority,#notes,#todo-list,#todo-details,#checklist{
+    border: 2px solid orange;
+    border-radius: 5px;
+    background-color: beige;
+}
+#submit-todo{
+    background-color: bisque;
+    border-radius: 5px;
+    cursor: pointer;
+}
