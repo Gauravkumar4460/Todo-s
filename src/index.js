@@ -95,6 +95,7 @@ const UI = (() => {
             <button id="delete-todo">Delete</button>
              `;
         document.getElementById('delete-todo').addEventListener('click', () => {
+            const currentProject = projectManager.getCurrentProject();
             currentProject.removeTodo(index);
             renderTodos();
         });
