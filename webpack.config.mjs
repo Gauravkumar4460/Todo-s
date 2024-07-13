@@ -1,8 +1,12 @@
-const path = require('path');
-const htmlWebpackPlugin = require('html-webpack-plugin');
-const { plugins } = require('../restaurantPage/webpack.config');
+import path from 'path';
 
-module.exports =  {
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import htmlWebpackPlugin  from 'html-webpack-plugin';
+
+export default  {
         mode: 'development',
         entry: './src/index.js',
         output: {

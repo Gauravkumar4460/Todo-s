@@ -6,8 +6,12 @@
     <title>Todo's | Never miss your priorities</title>
 </head>
 <body>
+    <div id="project-container">
+        <h2>Projects</h2>
     <div id="project-list"></div>
+    </div>
     <form id="todo-form">
+        <h1>Todo From</h1>
         <input type="text" id="title" placeholder="Title" required>
         <input type="text" id="description" placeholder="Description">
         <input type="date" id="dueDate" required>
@@ -21,8 +25,14 @@
         <button type="submit" id="submit-todo">Add Todo</button>
     </form>
     <div id="container">
+        <div id="todo-list-header">
+            <h2>Todo List</h2>
     <div id="todo-list"></div>
+        </div>
+        <div id="todo-details-header">
+            <h2>Todo Details</h2>
     <div id="todo-details"></div>
+        </div>
     </div>
 </body>
 </html>

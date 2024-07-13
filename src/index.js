@@ -22,7 +22,7 @@ const UI = (() => {
             projectElement.style.padding = '10px';
             projectElement.style.margin = '5px 0';
 
-            // New project button
+            
             const addProjectOption = document.createElement('div');
             addProjectOption.style.width = '20px';
             addProjectOption.style.height = '20px';
@@ -31,13 +31,13 @@ const UI = (() => {
             addProjectOption.style.cursor = 'pointer';
             addProjectOption.textContent = '+';
 
-            // Project name
+            
             const projectNameElement = document.createElement('span');
             projectNameElement.textContent = project.name;
             projectNameElement.style.flexGrow = '1';
             projectNameElement.style.cursor = 'pointer';
 
-            // Event listeners
+            
             projectNameElement.addEventListener('click', () => {
                 projectManager.setCurrentProject(index);
                 renderTodos();
@@ -55,13 +55,16 @@ const UI = (() => {
                 if (projectName) {
                     projectManager.addProject(new Project(projectName));
                     projectManager.setCurrentProject(projectManager.projects.length - 1);
+
+        
+                    
                     
                     renderProjects();
                     
                 }
             });
 
-            // Append elements
+
             projectElement.appendChild(addProjectOption);
             projectElement.appendChild(projectNameElement);
             projectList.appendChild(projectElement);
@@ -76,6 +79,7 @@ const UI = (() => {
             const todoElement = document.createElement('div');
             todoElement.textContent = `${todo.title} - ${todo.dueDate}`;
             todoElement.className = `priority-${todo.priority}`;
+
             todoElement.addEventListener('click', () => {
                 expandTodoDetails(todo, index);
             });
@@ -96,6 +100,7 @@ const UI = (() => {
              `;
         document.getElementById('delete-todo').addEventListener('click', () => {
             const currentProject = projectManager.getCurrentProject();
+            todoDetails.innerHTML = '';
             currentProject.removeTodo(index);
             renderTodos();
         });
