@@ -1,74 +1,74 @@
-
-
-import { Project,Todo } from './Todo.js';
+import { Project, Todo } from './Todo.js';
 
 class ProjectManager {
-    constructor() {
-        this.projects = this.loadFromLocalStorage() || [];
-        this.defaultProject = new Project('Project 1');
+  constructor() {
+    this.projects = this.loadFromLocalStorage() || [];
+    this.defaultProject = new Project('Project 1');
 
-        if(this.projects.length === 0){
-            this.projects.push(this.defaultProject);
-        }
-
-        this.currentProjectIndex = this.loadCurrentProjectIndexFromLocalStorage() || 0;
-        this.currentProject = this.projects[this.currentProjectIndex];
+    if (this.projects.length === 0) {
+      this.projects.push(this.defaultProject);
     }
 
-    addProject(project) {
-        this.projects.push(project);
-        this.saveToLocalStorage();
-    }
+    this.currentProjectIndex =
+      this.loadCurrentProjectIndexFromLocalStorage() || 0;
+    this.currentProject = this.projects[this.currentProjectIndex];
+  }
 
-    removeProject(index) {
-        this.projects.splice(index, 1);
-        this.saveToLocalStorage();
-    }
+  addProject(project) {
+    this.projects.push(project);
+    this.saveToLocalStorage();
+  }
 
-    setCurrentProject(index) {
-        this.currentProjectIndex = index;
-        this.saveCurrentProjectIndexToLocalStorage();
-        this.currentProject = this.projects[this.currentProjectIndex];
-    }
+  removeProject(index) {
+    this.projects.splice(index, 1);
+    this.saveToLocalStorage();
+  }
 
-    getCurrentProject() {
-        return this.currentProject;
-    }
+  setCurrentProject(index) {
+    this.currentProjectIndex = index;
+    this.saveCurrentProjectIndexToLocalStorage();
+    this.currentProject = this.projects[this.currentProjectIndex];
+  }
 
-    saveToLocalStorage() {
-        localStorage.setItem('projects',JSON.stringify(this.projects));
-    }
-    loadFromLocalStorage() {
-        const projectsJson = localStorage.getItem('projects');
-        if(projectsJson){
-            const projectsData = JSON.parse(projectsJson);
-            return projectsData.map(project => {
-                const newProject = new Project(project.name);
-                project.todos.forEach(todo => {
-                        newProject.addTodo(new Todo(
-                            todo.title,
-                            todo.description,
-                            todo.dueDate,
-                            todo.priority,
-                            todo.notes,
-                            todo.checklist,
-                            todo.completed = false
-                        ));                 
-                });
-                return newProject;
-            });
-        }
-        return null;
-    }
+  getCurrentProject() {
+    return this.currentProject;
+  }
 
-    saveCurrentProjectIndexToLocalStorage() {
-        localStorage.setItem('currentProjectIndex',this.currentProjectIndex);
+  saveToLocalStorage() {
+    localStorage.setItem('projects', JSON.stringify(this.projects));
+  }
+  loadFromLocalStorage() {
+    const projectsJson = localStorage.getItem('projects');
+    if (projectsJson) {
+      const projectsData = JSON.parse(projectsJson);
+      return projectsData.map((project) => {
+        const newProject = new Project(project.name);
+        project.todos.forEach((todo) => {
+          newProject.addTodo(
+            new Todo(
+              todo.title,
+              todo.description,
+              todo.dueDate,
+              todo.priority,
+              todo.notes,
+              todo.checklist,
+              (todo.completed = false),
+            ),
+          );
+        });
+        return newProject;
+      });
     }
-    loadCurrentProjectIndexFromLocalStorage() {
-        const index = localStorage.getItem('currentProjectIndex');
-        return index ? parseInt(index) : 0;
-    }
+    return null;
+  }
+
+  saveCurrentProjectIndexToLocalStorage() {
+    localStorage.setItem('currentProjectIndex', this.currentProjectIndex);
+  }
+  loadCurrentProjectIndexFromLocalStorage() {
+    const index = localStorage.getItem('currentProjectIndex');
+    return index ? parseInt(index) : 0;
+  }
 }
-
 
 export { ProjectManager };

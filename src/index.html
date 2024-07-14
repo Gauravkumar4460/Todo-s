@@ -1,38 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo's | Never miss your priorities</title>
-</head>
-<body>
+  </head>
+  <body>
     <div id="project-container">
-        <h2>Projects</h2>
-    <div id="project-list"></div>
+      <h2>Projects</h2>
+      <div id="project-list"></div>
     </div>
     <form id="todo-form">
-        <h1>Todo From</h1>
-        <input type="text" id="title" placeholder="Title" required>
-        <input type="text" id="description" placeholder="Description">
-        <input type="date" id="dueDate" required>
-        <select id="priority">
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-        </select>
-        <textarea id="notes" placeholder="Notes"></textarea>
-        <input type="text" id="checklist" placeholder="Checklist (comma separated)">
-        <button type="submit" id="submit-todo">Add Todo</button>
+      <h1>Todo From</h1>
+      <input type="text" id="title" placeholder="Title" required />
+      <input type="text" id="description" placeholder="Description" />
+      <input type="date" id="dueDate" required />
+      <select id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <textarea id="notes" placeholder="Notes"></textarea>
+      <input
+        type="text"
+        id="checklist"
+        placeholder="Checklist (comma separated)"
+      />
+      <button type="submit" id="submit-todo">Add Todo</button>
     </form>
     <div id="container">
-        <div id="todo-list-header">
-            <h2>Todo List</h2>
-    <div id="todo-list"></div>
-        </div>
-        <div id="todo-details-header">
-            <h2>Todo Details</h2>
-    <div id="todo-details"></div>
-        </div>
+      <div id="todo-list-header">
+        <h2>Todo List</h2>
+        <div id="todo-list"></div>
+      </div>
+      <div id="todo-details-header">
+        <h2>Todo Details</h2>
+        <div id="todo-details"></div>
+      </div>
     </div>
-</body>
+  </body>
 </html>
