@@ -1,4 +1,4 @@
-// ui.js
+
 
 import { Todo, Project } from './Todo.js';
 import { ProjectManager } from './ProjectManager.js';
@@ -58,12 +58,12 @@ const UI = (() => {
 
         
                     
-                    
+                
                     renderProjects();
                     
                 }
             });
-
+            
 
             projectElement.appendChild(addProjectOption);
             projectElement.appendChild(projectNameElement);
@@ -71,6 +71,8 @@ const UI = (() => {
         });
     };
 
+   
+    
 
     const renderTodos = () => {
         const currentProject = projectManager.getCurrentProject();
@@ -102,6 +104,7 @@ const UI = (() => {
             const currentProject = projectManager.getCurrentProject();
             todoDetails.innerHTML = '';
             currentProject.removeTodo(index);
+            projectManager.saveToLocalStorage();
             renderTodos();
         });
     };
@@ -109,6 +112,7 @@ const UI = (() => {
     const addTodo = (todo) => {
         const currentProject = projectManager.getCurrentProject();
         currentProject.addTodo(todo);
+        projectManager.saveToLocalStorage();
         renderTodos();
     };
 
@@ -132,6 +136,5 @@ const UI = (() => {
     };
 })();
 
-// Initial render
 UI.renderProjects();
 UI.renderTodos();

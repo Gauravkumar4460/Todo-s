@@ -1,4 +1,4 @@
-// todo.js
+
 
 class Todo {
     constructor(title, description, dueDate, priority, notes = '', checklist = []) {
@@ -39,5 +39,4 @@ class Project {
     }
 }
 
-// Export the classes for use in other modules
 export { Todo, Project };

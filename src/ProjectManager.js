@@ -1,4 +1,4 @@
-// projectManager.js
+
 
 import { Project,Todo } from './Todo.js';
 
